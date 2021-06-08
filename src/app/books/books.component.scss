@@ -1,0 +1,9 @@
+table td {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: lightblue;
+  border: 2px solid darkblue;
+  font-weight: bold;
+}

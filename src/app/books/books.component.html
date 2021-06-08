@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col">
+    <div class="input-group flex-nowrap my-2">
+      <div class="input-group-prepend">
+        <input type="text" class="form-control" placeholder="Поиск книги" [(ngModel)]="searchStr">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+   <div class="col">
+     <table class="table table-bordered table-hover">
+       <thead>
+        <tr>
+          <th class="align-middle" scope="col">Название <button class="btn btn-outline-success" (click)="sortTitle()">Sort by name</button></th>
+          <th class="align-middle text-center" scope="col">Описание</th>
+          <th class="align-middle" scope="col">Дата издания<button class="btn btn-outline-success" (click)="sortDate()">Sort by date</button></th>
+          <th class="align-middle" scope="col">Кол-во страниц <button class="btn btn-outline-success" (click)="sortPage()">Sort by page</button></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr *ngFor="let book of bookList | search:searchStr" (click)="selectBook(book)" [class.selected]="isSelected(book.id)">
+         <td class="align-middle">{{book.title}}</td>
+         <td class="align-middle">{{book.description}}</td>
+         <td class="align-middle">{{book.publishDate | date}}</td>
+         <td class="align-middle">{{book.pageCount}}</td>
+       </tr>
+       </tbody>
+     </table>
+   </div>
+ </div>
+
+
+
+
+
